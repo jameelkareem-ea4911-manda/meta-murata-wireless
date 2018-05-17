@@ -1,18 +1,20 @@
-cp ./sources/meta-murata-wireless/freescale/imx6ulevk.conf ./sources/meta-freescale/conf/machine/
-EULA=$EULA DISTRO=$DISTRO MACHINE=$MACHINE . ./sources/meta-fsl-bsp-release/imx/tools/fsl-setup-release.sh -b $@
+#!/bin/bash
+# Updating local.conf for TI MIRRORS
+echo "TI_MIRROR = \"http://software-dl.ti.com/processor-sdk-mirror/sources/\"" >> conf/local.conf
+echo "MIRRORS += \" \\" >> conf/local.conf
+echo "bzr://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "cvs://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "git://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "gitsm://.*/.*    \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "hg://.*/.*       \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "osc://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "p4://.*/.*       \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "npm://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "ftp://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "https?$://.*/.*  \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "svn://.*/.*      \${TI_MIRROR} \n \\" >> conf/local.conf
+echo "\"" >> conf/local.conf
 
-echo "INTERNAL_MIRROR = \"http://localhost\"" >> conf/local.conf
-echo "CORE_IMAGE_EXTRA_INSTALL += \" hostap-conf hostap-utils hostapd backporttool-linux murata-binaries\"" >> conf/local.conf
-
-echo "BBLAYERS += \" \${BSPDIR}/sources/meta-murata-wireless \"" >> conf/bblayers.conf
-
-echo ""
-echo "CORRECTION: Murata modified the following files"
-echo "  - bblayers.conf present in <BUILD_DIR>/conf"
-echo "  - local.conf present in <BUILD_DIR>/conf"
-echo "  - imx6ulevk.conf present in sources/meta-freescale/conf/machine"
-echo ""
-echo "Murata-Wireless setup complete. Create an image with:"
-echo "    $ bitbake fsl-image-validation-imx"
-echo ""
+# Updating BBLAYERS with meta-murata-wireless
+echo "BBLAYERS += \" ${TISDK_DIR}/sources/meta-murata-wireless \"" >> conf/bblayers.conf
 
