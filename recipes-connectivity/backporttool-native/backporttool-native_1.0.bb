@@ -23,7 +23,7 @@ SRC_URI[archive99.sha256sum] = "8177f97513213526df2cf6184d8ff986c675afb514d4e68a
 S = "${WORKDIR}/backporttool-native-${PV}"
 B = "${WORKDIR}/backporttool-native-${PV}/"
 
-DEPENDS = " linux-processor-sdk"
+DEPENDS = " linux-ti-staging"
 do_configure[depends] += "virtual/kernel:do_shared_workdir"
 do_configure[depends] += "virtual/kernel:do_compile_kernelmodules"
 #do_configure[depends] += "virtual/kernel:kernel_do_compile"

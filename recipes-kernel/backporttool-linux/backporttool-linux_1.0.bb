@@ -18,7 +18,7 @@ SRC_URI[archive99.sha256sum] = "8177f97513213526df2cf6184d8ff986c675afb514d4e68a
 
 inherit linux-kernel-base kernel-arch
 
-DEPENDS = " linux-processor-sdk"
+DEPENDS = " linux-ti-staging"
 #DEPENDS += " virtual/kernel"
 DEPENDS += " backporttool-native"
 
