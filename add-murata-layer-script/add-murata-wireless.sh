@@ -16,6 +16,6 @@
 #echo "\"" >> conf/local.conf
 
 # Updating BBLAYERS with meta-murata-wireless
-#echo "BBLAYERS += \" ${TISDK_DIR}/sources/meta-murata-wireless \"" >> conf/bblayers.conf
+#echo "BBLAYERS += \" ${TISDK_DIR}/sources/meta-murata-wireless \"" >> ${TISDK_DIR}/conf/bblayers.conf
 
-echo "INSANE_SKIP_\${PN} += \"dev-deps\"" >> meta-ros/recipes-ros/vision-opencv/cv-bridge_1.11.16.bb
+echo "INSANE_SKIP_\${PN} += \"dev-deps\"" >> ${TISDK_DIR}/sources/meta-ros/recipes-ros/vision-opencv/cv-bridge_1.11.16.bb
