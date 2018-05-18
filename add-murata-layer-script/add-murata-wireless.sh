@@ -1,7 +1,7 @@
 #!/bin/bash
 # Updating local.conf for TI MIRRORS
-echo "TI_MIRROR = \"http://software-dl.ti.com/processor-sdk-mirror/sources/\"" >> conf/local.conf
-echo "MIRRORS += \" \\" >> conf/local.conf
+echo "TI_MIRROR = \"http://software-dl.ti.com/processor-sdk-mirror/sources/\"" >> ${TI_BUILD_DIR}/conf/local.conf
+echo "MIRRORS += \" \\" >> ${TI_BUILD_DIR}/conf/local.conf
 echo "bzr://.*/.*      \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
 echo "cvs://.*/.*      \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
 echo "git://.*/.*      \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
@@ -13,7 +13,7 @@ echo "npm://.*/.*      \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
 echo "ftp://.*/.*      \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
 echo "https?$://.*/.*  \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
 echo "svn://.*/.*      \${TI_MIRROR} \n \\" >> ${TI_BUILD_DIR}/conf/local.conf
-echo "\"" >> conf/local.conf
+echo "\"" >> ${TI_BUILD_DIR}/conf/local.conf
 
 # Updating BBLAYERS with meta-murata-wireless
 echo "BBLAYERS += \" ${TISDK_DIR}/sources/meta-murata-wireless \"" >> ${TI_BUILD_DIR}/conf/bblayers.conf
