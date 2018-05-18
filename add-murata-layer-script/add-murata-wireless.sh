@@ -18,10 +18,7 @@ echo "\"" >> conf/local.conf
 # Updating BBLAYERS with meta-murata-wireless
 echo "BBLAYERS += \" ${TISDK_DIR}/sources/meta-murata-wireless \"" >> ${TI_BUILD_DIR}/conf/bblayers.conf
 
-
-# Updating BBLAYERS with meta-murata-wireless
-#echo "BBLAYERS += \" ${TISDK_DIR}/sources/meta-murata-wireless \"" >> ${TISDK_DIR}/conf/bblayers.conf
-
+# Updating recipe files for dev-deps error
 echo "INSANE_SKIP_\${PN} += \"dev-deps\"" >> ${TISDK_DIR}/sources/meta-ros/recipes-ros/vision-opencv/cv-bridge_1.11.16.bb
 echo "INSANE_SKIP_\${PN} += \"dev-deps\"" >> ${TISDK_DIR}/meta-ros/recipes-ros/geometry2/tf2-py_0.5.17.bb
 echo "INSANE_SKIP_\${PN} += \"dev-deps\"" >> ${TISDK_DIR}/meta-ros/recipes-ros/image-common/camera-calibration-parsers_1.11.13.bb
