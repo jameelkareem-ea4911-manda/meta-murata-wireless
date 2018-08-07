@@ -3,8 +3,7 @@
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
-SRC_URI_append = " file://0003-kernel_change_for_1.8v_UL_and_ULL.patch \
-		   file://0004-fmac-battra.patch"
+SRC_URI_append = " file://0004-fmac-battra.patch"
 
 addtask copy_defconfig_after_patch after do_patch before do_configure
 do_copy_defconfig_after_patch () {

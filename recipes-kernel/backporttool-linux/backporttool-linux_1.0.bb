@@ -9,8 +9,8 @@ LICENSE = "GPLv2"
 
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-SRC_URI =  "git://github.com/murata-wireless/cyw-fmac;protocol=http;branch=imx-morty-battra"
-SRCREV = "c03eb3a3195e8db1d25f0656d4bbd718622f7118"
+SRC_URI =  "git://github.com/jameelkareem-mothra/cyw-fmac;protocol=http;branch=imx-morty-mothra"
+SRCREV = "7f0c2b59598d19bf12b9782d36611f3b0c9139b3"
 S = "${WORKDIR}/git"
 
 

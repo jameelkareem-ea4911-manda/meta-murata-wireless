@@ -36,6 +36,7 @@ SRC_URI = " \
     file://0019-driver-Add-port-authorized-event.patch;apply=yes \
     file://0020-nl80211-Handle-port-authorized-event.patch;apply=yes \
     file://0021-murata-hostapd-conf.patch;apply=yes \
+    file://0023-driver_nl80211-Fix-802.1X-auth-failure-when-offloadi.patch;apply=yes \
     file://udhcpd.conf \
 "
 

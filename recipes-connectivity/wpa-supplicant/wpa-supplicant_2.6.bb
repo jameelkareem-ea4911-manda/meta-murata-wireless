@@ -46,6 +46,8 @@ SRC_URI = "http://w1.fi/releases/wpa_supplicant-${PV}.tar.gz  \
            file://0020-nl80211-Handle-port-authorized-event.patch;apply=yes \
            file://0021-wpa_supplicant-Handle-port-authorized-event.patch;apply=yes \
            file://0022-murata-wpa_supplication-Add-server-in-hs20.patch;apply=yes \
+	   file://0022-wpa_supplicant-Notify-Neighbor-Report-for-driver-tri.patch;apply=yes \
+           file://0023-driver_nl80211-Fix-802.1X-auth-failure-when-offloadi.patch;apply=yes \
 "
 
 SRC_URI[md5sum] = "091569eb4440b7d7f2b4276dbfc03c3c"

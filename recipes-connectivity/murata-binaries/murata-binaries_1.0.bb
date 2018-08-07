@@ -4,15 +4,15 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S}/cyw-bt-patch/LICENCE.cypress;md5=cbc5f665d04f741f1e006d2096236ba7"
 
 SRC_URI = " \
-	git://github.com/murata-wireless/cyw-fmac-fw;protocol=http;branch=battra;destsuffix=cyw-fmac-fw \
-	git://github.com/murata-wireless/cyw-fmac-nvram;protocol=http;branch=battra;destsuffix=cyw-fmac-nvram \
-	git://github.com/murata-wireless/cyw-bt-patch;protocol=http;branch=morty-battra;destsuffix=cyw-bt-patch \
-	git://github.com/murata-wireless/cyw-fmac-utils-imx32;protocol=http;branch=battra;destsuffix=cyw-fmac-utils-imx32 \
+	git://github.com/jameelkareem-mothra/cyw-fmac-fw;protocol=http;branch=mothra;destsuffix=cyw-fmac-fw \
+	git://github.com/jameelkareem-mothra/cyw-fmac-nvram;protocol=http;branch=mothra;destsuffix=cyw-fmac-nvram \
+	git://github.com/jameelkareem-mothra/cyw-bt-patch;protocol=http;branch=morty-mothra;destsuffix=cyw-bt-patch \
+	git://github.com/jameelkareem-mothra/cyw-fmac-utils-imx32;protocol=http;branch=mothra;destsuffix=cyw-fmac-utils-imx32 \
 "
 
-SRCREV_cyw-fmac-fw="8b818105f91a247b04c87aad40232b76b47b99b0"
-SRCREV_cyw-fmac-nvram="f2ec90e2bbd971477ae6868fe517262643c7aba5"
-SRCREV_cyw-bt-patch="01bb661269a9d4555da18ee42aa8a9f03ddf8ee6"
+SRCREV_cyw-fmac-fw="7d7a0c945aaa45d5183b7944280897dd28ccaa2e"
+SRCREV_cyw-fmac-nvram="ed8dac2a4f92d7a8eb530cf36d4bf04f8fed9e22"
+SRCREV_cyw-bt-patch="268df690598b42692c836ab6863d921f01e1ca38"
 SRCREV_cyw-fmac-utils-imx32="060688dfe76df98751207c8146268ce7fd80b6ab"
 
 SRCREV_default = "${AUTOREV}"
