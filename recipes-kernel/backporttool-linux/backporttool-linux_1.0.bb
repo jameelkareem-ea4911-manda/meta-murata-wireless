@@ -7,9 +7,15 @@ HOMEPAGE = "https://github.com/murata-wireless"
 SECTION = "kernel/modules"
 LICENSE = "GPLv2"
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-SRC_URI =  "git://github.com/jameelkareem-mothra/cyw-fmac;protocol=http;branch=imx-morty-mothra"
+SRC_URI =  "git://github.com/jameelkareem-mothra/cyw-fmac;protocol=http;branch=imx-morty-mothra \
+            file://0001-murata-revision-update.patch;apply=yes \
+            file://0002-murata-rx-transmit-max-perf.patch;apply=yes \
+            file://0003-CLM-blob-failure-msg-display-prevention.patch;apply=yes \
+            file://0004-murata-1FD-initialization-fix.patch;apply=yes \
+"
 SRCREV = "7f0c2b59598d19bf12b9782d36611f3b0c9139b3"
 S = "${WORKDIR}/git"
 
