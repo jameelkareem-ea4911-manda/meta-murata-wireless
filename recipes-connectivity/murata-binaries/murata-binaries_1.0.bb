@@ -9,6 +9,7 @@ SRC_URI = " \
 	git://github.com/jameelkareem-mothra/cyw-bt-patch;protocol=http;branch=morty-mothra;destsuffix=cyw-bt-patch \
 	git://github.com/jameelkareem-mothra/cyw-fmac-utils-imx32;protocol=http;branch=mothra;destsuffix=cyw-fmac-utils-imx32 \
 	file://10-network.rules \
+	file://sshd_config \
 "
 
 SRCREV_cyw-fmac-fw="a7d4d4c1a3d0f003718a822ab91fe614f75c0b03"
@@ -49,6 +50,7 @@ do_install () {
 	install -d ${D}/etc/firmware/murata-master
 	install -d ${D}/usr/sbin
 	install -d ${D}/etc/udev/rules.d
+	install -d ${D}/etc/ssh
 
 #       Copying *.HCD files to etc/firmware and etc/firmware/murata-master
         install -m 444 ${S}//cyw-bt-patch/CYW4335C0.ZP.hcd    ${D}${sysconfdir}/firmware/BCM4335C0.ZP.hcd
@@ -105,6 +107,7 @@ do_install () {
 	install -m 444 ${S}/cyw-fmac-nvram/README_NVRAM                  ${D}/lib/firmware/brcm
 
 	install -m 444 ${S}/10-network.rules                  ${D}${sysconfdir}/udev/rules.d/10-network.rules
+	install -m 444 ${S}/sshd_config                       ${D}${sysconfdir}/ssh/sshd_config
 
 #       Copying wl tool binary to /usr/sbin
 	install -m 755 ${S}/cyw-fmac-utils-imx32/wl ${D}/usr/sbin/wl
