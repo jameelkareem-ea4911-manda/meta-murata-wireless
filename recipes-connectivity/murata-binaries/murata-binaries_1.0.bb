@@ -4,18 +4,17 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S}/cyw-bt-patch/LICENCE.cypress;md5=cbc5f665d04f741f1e006d2096236ba7"
 
 SRC_URI = " \
-	git://github.com/jameelkareem-mothra/cyw-fmac-fw;protocol=http;branch=mothra;destsuffix=cyw-fmac-fw \
-	git://github.com/jameelkareem-mothra/cyw-fmac-nvram;protocol=http;branch=mothra;destsuffix=cyw-fmac-nvram \
-	git://github.com/jameelkareem-mothra/cyw-bt-patch;protocol=http;branch=morty-mothra;destsuffix=cyw-bt-patch \
-	git://github.com/jameelkareem-mothra/cyw-fmac-utils-imx32;protocol=http;branch=mothra;destsuffix=cyw-fmac-utils-imx32 \
+	git://github.com/jameelkareem-sample/cyw-fmac-fw;protocol=http;branch=manda;destsuffix=cyw-fmac-fw \
+	git://github.com/jameelkareem-sample/cyw-fmac-nvram;protocol=http;branch=manda;destsuffix=cyw-fmac-nvram \
+	git://github.com/jameelkareem-sample/cyw-bt-patch;protocol=http;branch=morty-manda;destsuffix=cyw-bt-patch \
+	git://github.com/jameelkareem-sample/cyw-fmac-utils-imx32;protocol=http;branch=manda;destsuffix=cyw-fmac-utils-imx32 \
 	file://10-network.rules \
-	file://sshd_config \
 "
 
-SRCREV_cyw-fmac-fw="a7d4d4c1a3d0f003718a822ab91fe614f75c0b03"
-SRCREV_cyw-fmac-nvram="6903d0fd018011516fccc2cdbb24f285da8b937a"
-SRCREV_cyw-bt-patch="38d5d335dd598a041e7fff76294407d37f6a4fa6"
-SRCREV_cyw-fmac-utils-imx32="57c35fe18fafb9263fcced4e3ed81d3c8f894dc6"
+SRCREV_cyw-fmac-fw="9a813ba411870cffd4ec20d30623035773564da9"
+SRCREV_cyw-fmac-nvram="d27f1bf105fa1e5b828e355793b88d4b66188411"
+SRCREV_cyw-bt-patch="748462f0b02ec4aeb500bedd60780ac51c37be31"
+SRCREV_cyw-fmac-utils-imx32="b1cbd9170dd96ac73102aeee5d73b11575e1028a"
 
 SRCREV_default = "${AUTOREV}"
 
@@ -50,7 +49,6 @@ do_install () {
 	install -d ${D}/etc/firmware/murata-master
 	install -d ${D}/usr/sbin
 	install -d ${D}/etc/udev/rules.d
-	install -d ${D}/etc/ssh
 
 #       Copying *.HCD files to etc/firmware and etc/firmware/murata-master
         install -m 444 ${S}//cyw-bt-patch/CYW4335C0.ZP.hcd    ${D}${sysconfdir}/firmware/BCM4335C0.ZP.hcd
@@ -60,9 +58,6 @@ do_install () {
         install -m 444 ${S}//cyw-bt-patch/CYW43430A1.1DX.hcd  ${D}${sysconfdir}/firmware/BCM43430A1.1DX.hcd
         install -m 444 ${S}//cyw-bt-patch/CYW4350C0.1BB.hcd   ${D}${sysconfdir}/firmware/BCM4350C0.1BB.hcd
         install -m 444 ${S}//cyw-bt-patch/CYW4354A2.1CX.hcd   ${D}${sysconfdir}/firmware/BCM4354A2.1CX.hcd
-        install -m 444 ${S}//cyw-bt-patch/CYW4349B1.1FD.hcd   ${D}${sysconfdir}/firmware/BCM4349B1.1FD.hcd
-
-
 	install -m 444 ${S}//cyw-bt-patch/README_BT_PATCHFILE ${D}${sysconfdir}/firmware
 
 #	install -m 444 ${D}${sysconfdir}/firmware/*.hcd       ${D}${sysconfdir}/firmware/murata-master
@@ -73,7 +68,7 @@ do_install () {
         install -m 444 ${S}//cyw-bt-patch/CYW43430A1.1DX.hcd  ${D}${sysconfdir}/firmware/murata-master/_BCM43430A1.1DX.hcd
         install -m 444 ${S}//cyw-bt-patch/CYW4350C0.1BB.hcd   ${D}${sysconfdir}/firmware/murata-master/_BCM4350C0.1BB.hcd
         install -m 444 ${S}//cyw-bt-patch/CYW4354A2.1CX.hcd   ${D}${sysconfdir}/firmware/murata-master/_BCM4354A2.1CX.hcd
-        install -m 444 ${S}//cyw-bt-patch/CYW4349B1.1FD.hcd   ${D}${sysconfdir}/firmware/murata-master/_BCM4349B1.1FD.hcd
+	install -m 444 ${S}//cyw-bt-patch/README_BT_PATCHFILE ${D}${sysconfdir}/firmware
 	install -m 444 ${S}//cyw-bt-patch/README_BT_PATCHFILE ${D}${sysconfdir}/firmware/murata-master
 
 #       Copying FW and CLM BLOB files (*.bin, *.clm_blob) to lib/firmware/brcm folder
@@ -87,8 +82,6 @@ do_install () {
 	install -m 444 ${S}/cyw-fmac-fw/brcmfmac43012-sdio.1LV.clm_blob ${D}/lib/firmware/brcm/brcmfmac43012-sdio.clm_blob
 	install -m 444 ${S}/cyw-fmac-fw/brcmfmac43430-sdio.1DX.clm_blob ${D}/lib/firmware/brcm/brcmfmac43430-sdio.clm_blob
 	install -m 444 ${S}/cyw-fmac-fw/brcmfmac43455-sdio.1HK.clm_blob ${D}/lib/firmware/brcm/brcmfmac43455-sdio.clm_blob
-	install -m 444 ${S}/cyw-fmac-fw/brcmfmac4356-pcie.1CX.clm_blob ${D}/lib/firmware/brcm/brcmfmac4356-pcie.clm_blob
-	install -m 444 ${S}/cyw-fmac-fw/brcmfmac4359-pcie.1FD.clm_blob ${D}/lib/firmware/brcm/brcmfmac4359-pcie.clm_blob
 	install -m 444 ${S}/cyw-fmac-fw/README_FIRMWARE                 ${D}/lib/firmware/brcm
 	install -m 444 ${S}/cyw-fmac-fw/README_FIRMWARE                 ${D}/lib/firmware/brcm/murata-master
 	
@@ -103,11 +96,9 @@ do_install () {
 	install -m 444 ${S}/cyw-fmac-nvram/brcmfmac43362-sdio.SN8000.txt ${D}/lib/firmware/brcm/brcmfmac43362-sdio.txt
 	install -m 444 ${S}/cyw-fmac-nvram/brcmfmac43430-sdio.1DX.txt    ${D}/lib/firmware/brcm/brcmfmac43430-sdio.txt
 	install -m 444 ${S}/cyw-fmac-nvram/brcmfmac43455-sdio.1MW.txt    ${D}/lib/firmware/brcm/brcmfmac43455-sdio.txt
-	install -m 444 ${S}/cyw-fmac-nvram/brcmfmac4359-pcie.1FD.txt    ${D}/lib/firmware/brcm/brcmfmac4359-pcie.txt	
 	install -m 444 ${S}/cyw-fmac-nvram/README_NVRAM                  ${D}/lib/firmware/brcm
 
 	install -m 444 ${S}/10-network.rules                  ${D}${sysconfdir}/udev/rules.d/10-network.rules
-	install -m 444 ${S}/sshd_config                       ${D}${sysconfdir}/ssh/sshd_config
 
 #       Copying wl tool binary to /usr/sbin
 	install -m 755 ${S}/cyw-fmac-utils-imx32/wl ${D}/usr/sbin/wl
